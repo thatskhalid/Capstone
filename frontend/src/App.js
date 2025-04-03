@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./App.css"; // Import the CSS file
 
 function App() {
   const [password, setPassword] = useState("");
@@ -17,8 +18,16 @@ function App() {
     setResult(data);
   };
 
+  // Function to determine the CSS class for strength level
+  const getStrengthClass = (strength) => {
+    if (strength === "Weak") return "weak";
+    if (strength === "Medium") return "medium";
+    if (strength === "Strong") return "strong";
+    return "";
+  };
+
   return (
-    <div style={{ textAlign: "center", marginTop: "50px" }}>
+    <div className="container">
       <h1>Password Strength Checker</h1>
       <form onSubmit={handleSubmit}>
         <input
@@ -31,11 +40,11 @@ function App() {
       </form>
 
       {result && (
-        <div>
+        <div className={`result-box ${getStrengthClass(result.strength)}`}>
           <h3>Results:</h3>
-          <p>Length: {result.length}</p>
-          <p>Entropy: {result.entropy.toFixed(2)}</p>
-          <p>Strength: <strong>{result.strength}</strong></p>
+          <p><strong>Length:</strong> {result.length}</p>
+          <p><strong>Entropy:</strong> {result.entropy.toFixed(2)}</p>
+          <p><strong>Strength:</strong> {result.strength}</p>
         </div>
       )}
     </div>
@@ -43,3 +52,4 @@ function App() {
 }
 
 export default App;
+
