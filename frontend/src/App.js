@@ -21,7 +21,7 @@ function App() {
   // Function to determine the CSS class for strength level
   const getStrengthClass = (strength) => {
     if (strength === "Weak") return "weak";
-    if (strength === "Medium") return "medium";
+    if (strength === "Moderate") return "moderate";
     if (strength === "Strong") return "strong";
     return "";
   };

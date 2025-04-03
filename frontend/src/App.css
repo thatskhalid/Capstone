@@ -50,15 +50,15 @@ button:hover {
   border-radius: 5px;
 }
 
-/* Color-coded strength levels */
+/* Color-coded strength levels */ 
 .weak {
   background-color: #ffcccc;
   color: #d9534f;
 }
 
-.medium {
+.moderate {
   background-color: #fff3cd;
-  color: #f0ad4e;
+  color: #f0ad4e; 
 }
 
 .strong {
