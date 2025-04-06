@@ -66,3 +66,21 @@ button:hover {
   color: #28a745;
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px; /* nice spacing between form elements */
+}
+
+.show-password {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100px; /* controls how far apart the label and checkbox are */
+  font-size: 0.9rem;
+  color: #444;
+}
+
+
+

@@ -4,6 +4,7 @@ import "./App.css"; // Import the CSS file
 function App() {
   const [password, setPassword] = useState("");
   const [result, setResult] = useState(null);
+  const [showPassword, setShowPassword] = useState(false); // 🔹 New state
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -31,11 +32,22 @@ function App() {
       <h1>Password Strength Checker</h1>
       <form onSubmit={handleSubmit}>
         <input
-          type="password"
+          type={showPassword ? "text" : "password"} // 🔹 Toggle visibility
           placeholder="Enter your password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
+
+        {/* Show Password checkbox */}
+        <label className="show-password">
+          Show Password
+          <input
+            type="checkbox"
+            checked={showPassword}
+            onChange={() => setShowPassword(!showPassword)}
+          />
+        </label>
+
         <button type="submit">Check Strength</button>
       </form>
 
@@ -52,4 +64,5 @@ function App() {
 }
 
 export default App;
+
 
