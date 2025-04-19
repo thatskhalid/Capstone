@@ -6,6 +6,8 @@ import re
 import math
 from flask import Flask, request, jsonify
 from flask_cors import CORS
+import hashlib
+import requests
 
 
 app = Flask(__name__)
@@ -61,17 +63,39 @@ def evaluate_password(password):
 
     return {"length": length, "entropy": entropy, "strength": strength}
 
+def check_password_breach(password):
+    sha1_password = hashlib.sha1(password.encode("utf-8")).hexdigest().upper()
+    prefix = sha1_password[:5]
+    suffix = sha1_password[5:]
+
+    url = f"https://api.pwnedpasswords.com/range/{prefix}"
+    response = requests.get(url)
+
+    if response.status_code != 200:
+        return "Error checking breach"
+
+    hashes = (line.split(":") for line in response.text.splitlines())
+    for hash_suffix, count in hashes:
+        if hash_suffix == suffix:
+            return int(count)  # Password was found 'count' times
+    return 0  # Not found
+
 @app.route('/check-password', methods=['POST'])
 def check_password():
-    """API endpoint to check password strength."""
     data = request.get_json()
-    password = data.get("password", "")
+    password = data.get('password', '')
 
-    if not password:
-        return jsonify({"error": "No password provided"}), 400
+    evaluation = evaluate_password(password)
+    breach_count = check_password_breach(password)
 
-    result = evaluate_password(password)
-    return jsonify(result)
+    return jsonify({
+        'length': evaluation["length"],
+        'entropy': evaluation["entropy"],
+        'strength': evaluation["strength"],
+        'breached': breach_count
+    })
+
+
 
 @app.route('/', methods=['GET'])
 def home():

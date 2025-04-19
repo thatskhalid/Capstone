@@ -57,6 +57,13 @@ function App() {
           <p><strong>Length:</strong> {result.length}</p>
           <p><strong>Entropy:</strong> {result.entropy.toFixed(2)}</p>
           <p><strong>Strength:</strong> {result.strength}</p>
+          <p>
+            <strong>Breach Status:</strong>{" "}
+            {result.breached > 0
+              ? `⚠️ Found in ${result.breached} breaches`
+              : "✅ Not found in any breaches"}
+          </p>
+
         </div>
       )}
     </div>
