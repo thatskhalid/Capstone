@@ -48,7 +48,7 @@ function App() {
           />
         </label>
 
-        <button type="submit">Check Strength</button>
+        <button type="submit" disabled={!password}>Check Strength</button>
       </form>
 
       {result && (
