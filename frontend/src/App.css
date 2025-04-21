@@ -52,11 +52,19 @@ button:hover {
   background-color: #0056b3;
 }
 
+.result-box h3 {
+  margin-bottom: 1rem;
+  color: #333;
+}
+
 /* Result styling */
 .result-box {
-  margin-top: 20px;
-  padding: 15px;
-  border-radius: 5px;
+  margin-top: 30px;
+  padding: 1.5rem;
+  border-radius: 12px;
+  background-color: #f0f4f8;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  font-size: 15px;
 }
 
 /* Color-coded strength levels */ 
@@ -73,6 +81,33 @@ button:hover {
 .strong {
   background-color: #d4edda;
   color: #28a745;
+}
+
+.strength-label {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.weak .strength-label {
+  color: #d32f2f;
+}
+
+.moderate .strength-label {
+  color: #fbc02d;
+}
+
+.strong .strength-label {
+  color: #388e3c;
+}
+
+.breached {
+  color: #d32f2f;
+  font-weight: bold;
+}
+
+.safe {
+  color: #388e3c;
+  font-weight: bold;
 }
 
 form {

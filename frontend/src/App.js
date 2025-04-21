@@ -51,21 +51,25 @@ function App() {
         <button type="submit" disabled={!password}>Check Strength</button>
       </form>
 
-      {result && (
-        <div className={`result-box ${getStrengthClass(result.strength)}`}>
-          <h3>Results:</h3>
-          <p><strong>Length:</strong> {result.length}</p>
-          <p><strong>Entropy:</strong> {result.entropy.toFixed(2)}</p>
-          <p><strong>Strength:</strong> {result.strength}</p>
-          <p>
-            <strong>Breach Status:</strong>{" "}
-            {result.breached > 0
-              ? `⚠️ Found in ${result.breached} breaches`
-              : "✅ Not found in any breaches"}
-          </p>
-
-        </div>
-      )}
+              {result && (
+          <div className={`result-box ${getStrengthClass(result.strength)}`}>
+            <h3>🔍 Results:</h3>
+            <p><strong>🔢 Length:</strong> {result.length}</p>
+            <p><strong>📊 Entropy:</strong> {result.entropy.toFixed(2)}</p>
+            <p>
+              <strong>💪 Strength:</strong>{" "}
+              <span className="strength-label">{result.strength}</span>
+            </p>
+            <p>
+              <strong>🛡️ Breach Status:</strong>{" "}
+              {result.breached > 0 ? (
+                <span className="breached">⚠️ Found in {result.breached} breaches</span>
+              ) : (
+                <span className="safe">✅ Not found in any breaches</span>
+              )}
+            </p>
+          </div>
+        )}
     </div>
   );
 }
