@@ -11,43 +11,60 @@ body {
 
 /* Card container */
 .container {
-  background: white;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  width: 350px;
-  text-align: center;
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+  background-color: #fdfdfd;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+
+
 /* Input field */
-input {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
+input[type="password"],
+input[type="text"] {
+  padding: 12px;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 10px;
+  font-size: 16px;
 }
 
 /* Button styling */
 button {
-  background-color: #007bff;
+  background-color: #4a90e2;
   color: white;
+  padding: 12px;
+  font-size: 16px;
   border: none;
-  padding: 10px 15px;
+  border-radius: 10px;
   cursor: pointer;
-  border-radius: 5px;
-  width: 100%;
+  transition: background 0.3s ease;
 }
 
 button:hover {
   background-color: #0056b3;
 }
 
+.result-box h3 {
+  margin-bottom: 1rem;
+  color: #333;
+}
+
 /* Result styling */
 .result-box {
-  margin-top: 20px;
-  padding: 15px;
-  border-radius: 5px;
+  margin-top: 30px;
+  padding: 1.5rem;
+  border-radius: 12px;
+  background-color: #f0f4f8;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  font-size: 15px;
 }
 
 /* Color-coded strength levels */ 
@@ -66,21 +83,124 @@ button:hover {
   color: #28a745;
 }
 
+.strength-label {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.weak .strength-label {
+  color: #d32f2f;
+}
+
+.moderate .strength-label {
+  color: #fbc02d;
+}
+
+.strong .strength-label {
+  color: #388e3c;
+}
+
+.breached {
+  color: #d32f2f;
+  font-weight: bold;
+}
+
+.safe {
+  color: #388e3c;
+  font-weight: bold;
+}
+
 form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px; /* nice spacing between form elements */
+  gap: 1rem; /* nice spacing between form elements */
 }
 
-.show-password {
+
+label.show-password input {
+  margin-left: 10px;
+  transform: scale(1.2);
+}
+
+.copy-btn {
+  margin-top: 8px;
+  margin-left: 8px;
+  padding: 6px 10px;
+  background-color: #e0e0e0;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.copy-btn:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.suggestion-box {
+  margin-top: 20px;
+  background-color: #fff3cd;
+  padding: 1rem;
+  border-radius: 10px;
+  border: 1px solid #ffeeba;
+  color: #856404;
+}
+
+.suggestion-box h4 {
+  margin-bottom: 0.5rem;
+}
+
+.suggestion-box ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.loading-text {
+  color: #666;
+  font-style: italic;
+  margin-top: 10px;
+}
+
+.error-text {
+  color: red;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* Dark mode styles */
+.container.dark {
+  background-color: #494949;   /* #121212 */
+  color: #f0f0f0;
+}
+
+.container.dark input,
+.container.dark button {
+  background-color: #1e1e1e;
+  color: #f0f0f0;
+  border: 1px solid #555;
+}
+
+.container.dark .result-box {
+  background-color: #1a1a1a; /* #1a1a1a */
+}
+
+.dark-mode-toggle {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  width: 100px; /* controls how far apart the label and checkbox are */
-  font-size: 0.9rem;
-  color: #444;
+  gap: 10px;
+  margin-bottom: 15px;
 }
 
+/* Full page dark mode background */
+body.body-dark {
+  background-color: #121212;
+  transition: background-color 0.3s ease;
+}
 
+/* Results header in dark mode */
+.body-dark .result-box h3 {
+  color: #fff;
+}
 
