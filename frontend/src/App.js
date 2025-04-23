@@ -21,11 +21,12 @@ function App() {
     setError(null); // reset previous error
   
     try {
-      const response = await fetch("http://127.0.0.1:5000/check-password", {
+      const response = await fetch("https://password-strength-checker-backend-5uz8.onrender.com", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ password }),
       });
+      
   
       if (!response.ok) {
         throw new Error("Server error");
