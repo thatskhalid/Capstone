@@ -123,4 +123,84 @@ label.show-password input {
   transform: scale(1.2);
 }
 
+.copy-btn {
+  margin-top: 8px;
+  margin-left: 8px;
+  padding: 6px 10px;
+  background-color: #e0e0e0;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.copy-btn:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.suggestion-box {
+  margin-top: 20px;
+  background-color: #fff3cd;
+  padding: 1rem;
+  border-radius: 10px;
+  border: 1px solid #ffeeba;
+  color: #856404;
+}
+
+.suggestion-box h4 {
+  margin-bottom: 0.5rem;
+}
+
+.suggestion-box ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.loading-text {
+  color: #666;
+  font-style: italic;
+  margin-top: 10px;
+}
+
+.error-text {
+  color: red;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* Dark mode styles */
+.container.dark {
+  background-color: #494949;   /* #121212 */
+  color: #f0f0f0;
+}
+
+.container.dark input,
+.container.dark button {
+  background-color: #1e1e1e;
+  color: #f0f0f0;
+  border: 1px solid #555;
+}
+
+.container.dark .result-box {
+  background-color: #1a1a1a; /* #1a1a1a */
+}
+
+.dark-mode-toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+/* Full page dark mode background */
+body.body-dark {
+  background-color: #121212;
+  transition: background-color 0.3s ease;
+}
+
+/* Results header in dark mode */
+.body-dark .result-box h3 {
+  color: #fff;
+}
 
